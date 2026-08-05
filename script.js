@@ -104,20 +104,57 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ── 6. Quote Form ── */
+  // Change LEAD_INBOX to info@trueblueroofrandr.com.au once that mailbox exists.
+  // First submission to a new address triggers a one-off confirmation email that
+  // must be clicked before anything is delivered.
+  const LEAD_INBOX = 'duckthetiler@gmail.com';
+
   const form = document.getElementById('quote-form');
   const modal = document.getElementById('success-modal');
   const modalClose = document.getElementById('modal-close-btn');
 
   if (form) {
-    form.addEventListener('submit', (e) => {
+    const submitBtn = document.getElementById('form-submit-btn');
+    const btnLabel = submitBtn ? submitBtn.innerHTML : '';
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      // Show success modal
-      modal.classList.add('visible');
-      document.body.style.overflow = 'hidden';
+      const payload = Object.fromEntries(new FormData(form).entries());
+      payload._subject = `Website quote request — ${payload.Name || 'no name'}, ${payload.Suburb || 'no suburb'}`;
+      payload._replyto = payload.Email || '';
+      payload._template = 'table';
 
-      // Reset form
-      form.reset();
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+      }
+
+      try {
+        const res = await fetch(`https://formsubmit.co/ajax/${LEAD_INBOX}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+        modal.classList.add('visible');
+        document.body.style.overflow = 'hidden';
+        form.reset();
+      } catch (err) {
+        // Never claim a request was sent when it wasn't — give them the phone instead.
+        alert(
+          "Sorry — that didn't send. Something's gone wrong at our end.\n\n" +
+          'Please call us instead:\n' +
+          'Lochlan  0451 174 122\n' +
+          'Rhys  0435 239 766'
+        );
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = btnLabel;
+        }
+      }
     });
   }
 

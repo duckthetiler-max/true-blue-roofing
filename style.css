@@ -1162,6 +1162,22 @@ input, textarea, select {
   color: var(--text-primary);
 }
 
+.contact__method-value a {
+  color: inherit;
+  transition: color var(--duration-fast) var(--ease-smooth);
+}
+
+.contact__method-value a:hover {
+  color: var(--cyan-bright);
+}
+
+.contact__method-note {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
 /* Form */
 .contact__form {
   padding: var(--space-lg);
