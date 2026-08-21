@@ -6,6 +6,7 @@
   <title>True Blue Roof Restorations & Repairs — Protect, Restore, Repair</title>
   <meta name="description" content="True Blue Roof Restorations & Repairs — professional roof cleaning, repointing, painting, and repairs. Protect your home, restore your roof, repair with care. Call for a free quote today." />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="roof3d.css" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%230a1628' width='100' height='100' rx='20'/%3E%3Cpath d='M50 18L15 52h12v28h46V52h12L50 18z' fill='none' stroke='%234dd8ff' stroke-width='4'/%3E%3Crect x='40' y='45' width='20' height='20' rx='2' fill='none' stroke='%23ffbe3b' stroke-width='3'/%3E%3Cline x1='50' y1='45' x2='50' y2='65' stroke='%23ffbe3b' stroke-width='2'/%3E%3Cline x1='40' y1='55' x2='60' y2='55' stroke='%23ffbe3b' stroke-width='2'/%3E%3C/svg%3E" />
 </head>
 <body>
@@ -215,6 +216,67 @@
             <p class="service-card__desc">Got a leak? We'll find the source fast and fix it right the first time. No band-aid solutions — just permanent repairs.</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ 3D WALKTHROUGH ═══════════ -->
+    <section class="restoration3d section" id="how-it-works">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__badge">Inside The Job</span>
+          <h2 class="section__title">How A Restoration <span>Actually Works</span></h2>
+          <p class="section__subtitle">Most of the work on a tile roof happens where you can't see it from the driveway. Drag the model around and step through the whole job — broken tile out, ridge caps off, old bed chipped back, fresh mortar, flexible pointing, then the coat.</p>
+        </div>
+
+        <div class="r3-stage reveal reveal-delay-1">
+          <nav class="r3-rail" id="tb3d-rail" aria-label="Restoration steps">
+            <div class="r3-rail-head">Job sequence</div>
+          </nav>
+
+          <div>
+            <div class="r3-viewer">
+              <canvas id="tb3d-scene" aria-label="Interactive 3D model of a tiled roof restoration"></canvas>
+              <div id="tb3d-layer"></div>
+              <div class="r3-hint" id="tb3d-hint"><span class="r3-wide">Drag to orbit &middot; scroll to zoom</span><span class="r3-narrow">Drag to orbit</span></div>
+              <div class="r3-swatches" id="tb3d-swatches" role="group" aria-label="Finish colour"><span>Coat</span></div>
+              <div class="r3-tools">
+                <button class="r3-btn r3-btn--primary" id="tb3d-play" aria-label="Play sequence"><svg id="tb3d-playIcon" viewBox="0 0 12 12"><path d="M2 1l8 5-8 5z"/></svg><span id="tb3d-playTxt">Play</span></button>
+                <button class="r3-btn" id="tb3d-prev" aria-label="Previous step"><svg viewBox="0 0 12 12"><path d="M10 1v10L3 6zM2 1h1.4v10H2z"/></svg></button>
+                <button class="r3-btn" id="tb3d-next" aria-label="Next step"><svg viewBox="0 0 12 12"><path d="M2 1l7 5-7 5zM8.6 1H10v10H8.6z"/></svg></button>
+                <div class="r3-scrub" id="tb3d-scrub" role="slider" aria-label="Step progress" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                  <div class="r3-track"></div><div class="r3-fill" id="tb3d-scrubFill"></div>
+                </div>
+                <div class="r3-clock" id="tb3d-clock">1 / 8</div>
+                <button class="r3-btn" id="tb3d-reset">Reset view</button>
+              </div>
+            </div>
+
+            <div class="r3-caption">
+              <h3 id="tb3d-capTitle">&mdash;</h3>
+              <p id="tb3d-capBody">&mdash;</p>
+              <p class="r3-why" id="tb3d-capWhy"></p>
+            </div>
+          </div>
+        </div>
+
+        <dl class="r3-spec reveal reveal-delay-2">
+          <div>
+            <dt>Head lap</dt>
+            <dd>75 mm<small>The hidden overlap where each tile sits on the one below. That overlap is what keeps water out &mdash; not the tile itself.</small></dd>
+          </div>
+          <div>
+            <dt>Batten gauge</dt>
+            <dd>330 mm<small>Centre to centre, so every course sits on the same line. Varies with the tile profile.</small></dd>
+          </div>
+          <div>
+            <dt>Ridge bedding</dt>
+            <dd>40&ndash;60 mm<small>Fresh sand and cement under every cap, both sides of the ridge. This is the part that fails first on an old roof.</small></dd>
+          </div>
+          <div>
+            <dt>Coats</dt>
+            <dd>1 + 2<small>One coat of primer or sealer, then two coats of membrane. Colour is the last thing that happens, not the job.</small></dd>
+          </div>
+        </dl>
       </div>
     </section>
 
@@ -523,5 +585,6 @@
   </div>
 
   <script src="script.js"></script>
+  <script src="roof3d.js" defer></script>
 </body>
 </html>
