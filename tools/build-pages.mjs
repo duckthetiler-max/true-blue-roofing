@@ -132,7 +132,7 @@ const SERVICES = [
     ],
     faq: [
       ['Can a cracked tile be sealed instead of replaced?', 'Sealing a cracked tile with silicone hides the problem; it doesn\'t fix it. A field tile repair is mechanical: the broken tile comes out and a sound one goes in.'],
-      ['Can you match my existing tiles?', 'We source matching tiles for the replacement so it suits the roof.']
+      ['Can you match my existing tiles?', 'We look for a matching tile for every replacement. If an exact match isn\'t available, we talk you through the closest option before we fit it.']
     ],
     related: ['roof-leak-repair', 'roof-repointing', 'roof-restoration']
   },
