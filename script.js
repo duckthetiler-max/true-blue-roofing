@@ -16,7 +16,25 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll(); // init
 
+  /* ── 2. Mobile Menu ── */
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileOverlay = document.getElementById('mobile-overlay');
 
+  if (hamburger && mobileMenu && mobileOverlay) {
+    const setMenu = (open) => {
+      hamburger.classList.toggle('active', open);
+      hamburger.setAttribute('aria-expanded', String(open));
+      hamburger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      mobileMenu.classList.toggle('open', open);
+      mobileOverlay.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    };
+    hamburger.addEventListener('click', () => setMenu(!mobileMenu.classList.contains('open')));
+    mobileOverlay.addEventListener('click', () => setMenu(false));
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+  }
 
   /* ── 3. Smooth Scroll for all anchor links ── */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
