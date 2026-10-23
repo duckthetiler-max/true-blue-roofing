@@ -2,7 +2,32 @@
 
 Folders starting with `_` are skipped by GitHub Pages, so nothing here goes live. This is where the redesign was worked out before it's built into the real pages.
 
-**Status (22 Oct 2026):** three homepage directions are ready. The owners haven't picked one yet. Previews are in `previews/`:
+**Status (23 Oct 2026):** round 3. The owners turned down the round 2 directions below as too generic and not flashy enough, with stock photos that looked fake and colours and fonts they didn't like. Three new prototypes are in `proto/`. They use no photos at all: the art is drawn in code, in 3D or in type. The owners haven't picked one yet. Previews are in `proto/previews/`:
+
+| | Prototype | Feel |
+|---|---|---|
+| 1 | Golden Hour | Cinematic and premium. A live sky shader turns from day to dusk as you scroll, over a generated suburban skyline. Big serif type, line drawings that draw themselves, a pinned cutaway of the ridge. |
+| 2 | Blueprint | Interactive 3D. A house is modelled in the browser and builds itself from a blueprint. As you scroll, the roof is washed, cracked tiles come out and go back in, the ridge is re-bedded and pointed, and the coat goes on. Visitors pick the coat colour and can drag the house round at the end. |
+| 3 | Big Number | Simple and punchy. Electric blue, safety yellow and black, a giant tap-to-call number, stickers and big type. |
+
+### Round 3 prototypes (`proto/`)
+
+```sh
+cd _design/proto
+npm ci
+node build.mjs     # writes out/p1, out/p2 and out/p3
+npm run serve      # then open http://localhost:8150/p1/ (or p2, p3)
+```
+
+- `src/data.mjs` holds every fact the pages use. It only repeats what is already on the live site: no reviews, ratings, warranties or licences. Coat colours have plain names, not brand names.
+- `src/art.mjs` draws the Golden Hour skyline and service line drawings. `src/p2.js` models the house and roof (about 1,000 tiles) in three.js.
+- `tools/shots.cjs` takes storyboard screenshots, `tools/video.cjs` records scroll-through videos frame by frame on a virtual clock, and `tools/sheet.py` makes contact sheets. They need Playwright with Chromium and the site served on port 8150. Adding `?snap` to the Blueprint page makes the 3D scene jump straight to the scroll position, for storyboards.
+- Libraries: GSAP 3.15 with ScrollTrigger, SplitText and DrawSVG (free under GSAP's standard licence), Lenis (MIT), three.js r186 (MIT). Fonts: Instrument Serif, Inter Tight, Space Grotesk, JetBrains Mono, Anton and Archivo (SIL Open Font Licence).
+- These are prototypes, not the finished site. Whichever is picked gets rebuilt into the real pages, keeping the SEO work on this branch (service pages, structured data, sitemap). If it's Blueprint, the real build should also bundle only the parts of three.js it uses (the prototype loads the whole library) and show a still image where WebGL isn't available.
+
+### Round 2 (turned down)
+
+Previews are in `previews/`:
 
 | | Direction | Feel |
 |---|---|---|
@@ -13,13 +38,14 @@ Folders starting with `_` are skipped by GitHub Pages, so nothing here goes live
 ## What's in here
 
 - `brand/`: the logo rebuilt as vector files from the original artwork. The original `assets/logo.png` has a fake "transparent" checkerboard baked into it. The roofs and window are redrawn as exact geometry, and the wordmark is traced (`logo/trace.cjs`, `logo/paths-final.json`).
-  - `logo-horizontal-*`, `logo-stacked-*`, `mark-*`: `-light` versions for light backgrounds, `-dark` versions for dark ones.
+  - `logo-horizontal-*`, `logo-stacked-*`, `mark-*`: `-light` versions for light backgrounds, `-dark` versions for dark ones. For colour backgrounds: `logo-horizontal-white` is white with a lit gold window, `mark-white` is all white, and `logo-horizontal-ink` is all near-black.
   - `roof-*.svg`: the roof on its own, sized to sit exactly on the house-shaped photo frame used in direction B.
   - `favicon.svg`: the browser-tab icon.
-- `photos/`: licensed stock photos, resized to WebP at several widths (see below).
-- `mock/`: the three directions. Shared content and components, Tailwind CSS v4, self-hosted fonts (Fontsource) and Lucide icons.
+- `photos/`: licensed stock photos used in round 2, resized to WebP at several widths (see below).
+- `proto/`: the round 3 prototypes (see above).
+- `mock/`: the round 2 directions. Shared content and components, Tailwind CSS v4, self-hosted fonts (Fontsource) and Lucide icons.
 
-## Rebuild the previews
+## Rebuild the round 2 previews
 
 ```sh
 cd _design
