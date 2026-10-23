@@ -1,0 +1,145 @@
+{
+ "tiles-blue-sky": {
+  "adobe_stock_id": 290058910,
+  "w": 2354,
+  "h": 1572,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600,
+   2000
+  ]
+ },
+ "roof-chimney-sky": {
+  "adobe_stock_id": 292407393,
+  "w": 2356,
+  "h": 1570,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600,
+   2000
+  ]
+ },
+ "roof-restored-clouds": {
+  "adobe_stock_id": 88332627,
+  "w": 2349,
+  "h": 1575,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600,
+   2000
+  ]
+ },
+ "roof-horizon-sky": {
+  "adobe_stock_id": 281651268,
+  "w": 2424,
+  "h": 1526,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600,
+   2000
+  ]
+ },
+ "tiles-sunlit-texture": {
+  "adobe_stock_id": 1899597419,
+  "w": 2566,
+  "h": 1442,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600,
+   2000
+  ]
+ },
+ "tiles-close": {
+  "adobe_stock_id": 712703390,
+  "w": 2356,
+  "h": 1571,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600,
+   2000
+  ]
+ },
+ "tiles-mossy": {
+  "adobe_stock_id": 231569372,
+  "w": 2356,
+  "h": 1571,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600,
+   2000
+  ]
+ },
+ "tiles-scrubbing": {
+  "adobe_stock_id": 440117772,
+  "w": 2355,
+  "h": 1571,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600,
+   2000
+  ]
+ },
+ "ceiling-leak-stain": {
+  "adobe_stock_id": 409230501,
+  "w": 2355,
+  "h": 1571,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600,
+   2000
+  ]
+ },
+ "tiles-storm-damage": {
+  "adobe_stock_id": 605982507,
+  "w": 1924,
+  "h": 1923,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ]
+ },
+ "concrete-tile-roof": {
+  "adobe_stock_id": 490466110,
+  "w": 2356,
+  "h": 1571,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600,
+   2000
+  ]
+ },
+ "tiles-low-angle-sky": {
+  "adobe_stock_id": 659108788,
+  "w": 2354,
+  "h": 1572,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600,
+   2000
+  ]
+ }
+}

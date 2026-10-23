@@ -1,0 +1,155 @@
+@import "tailwindcss";
+@source "../out";
+
+/* Self-hosted fonts (Fontsource, SIL Open Font Licence) */
+@font-face { font-family: "Inter Variable"; src: url("fonts/inter-latin-wght-normal.woff2") format("woff2-variations"); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: "Archivo Variable"; src: url("fonts/archivo-latin-wdth-normal.woff2") format("woff2-variations"); font-weight: 100 900; font-stretch: 62% 125%; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url("fonts/barlow-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url("fonts/barlow-latin-500-normal.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url("fonts/barlow-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Barlow"; src: url("fonts/barlow-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Barlow Condensed"; src: url("fonts/barlow-condensed-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Barlow Condensed"; src: url("fonts/barlow-condensed-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Barlow Condensed"; src: url("fonts/barlow-condensed-latin-800-normal.woff2") format("woff2"); font-weight: 800; font-display: swap; }
+@font-face { font-family: "Bricolage Grotesque Variable"; src: url("fonts/bricolage-grotesque-latin-wght-normal.woff2") format("woff2-variations"); font-weight: 200 800; font-display: swap; }
+
+@theme inline {
+  --color-ink: var(--t-ink);
+  --color-muted: var(--t-muted);
+  --color-brand: var(--t-brand);
+  --color-brand-ink: var(--t-brand-ink);
+  --color-deep: var(--t-deep);
+  --color-accent: var(--t-accent);
+  --color-accent-ink: var(--t-accent-ink);
+  --color-accent-hover: var(--t-accent-hover);
+  --color-surface: var(--t-surface);
+  --color-tint: var(--t-tint);
+  --color-line: var(--t-line);
+  --color-page: var(--t-page);
+  --font-display: var(--t-display);
+  --font-body: var(--t-body);
+}
+
+/* ── Direction 1: Blue Sky ── */
+.t-sky {
+  --t-ink: #0b2239; --t-muted: #4f6378; --t-brand: #0e9ad6; --t-brand-ink: #0a76aa; --t-deep: #0b2239;
+  --t-accent: #f2b13b; --t-accent-ink: #0b2239; --t-accent-hover: #f6c25e;
+  --t-surface: #ffffff; --t-tint: #eef6fc; --t-line: #dbe6ef; --t-page: #ffffff;
+  --t-display: "Archivo Variable", "Inter Variable", system-ui, sans-serif; --t-body: "Inter Variable", system-ui, sans-serif;
+  --dg-rafter: #c9b49a; --dg-batten: #a88563; --dg-tile: #c8643b; --dg-tile-top: #d9784d; --dg-mortar: #d8cbb0; --dg-point: #0e9ad6;
+  --dg-line: #0b2239; --dg-text: #0b2239; --dg-sub: #4f6378;
+  --mp-land: #f4f8fb; --mp-area: rgba(14,154,214,.12); --mp-area-line: #0e9ad6; --mp-water: #cfe7f6; --mp-water-text: #5b88a8;
+  --mp-dot: #0e9ad6; --mp-dot-ring: #fff; --mp-text: #0b2239; --mp-cbd: #0b2239; --mp-sub: #4f6378;
+}
+.t-sky .display { font-stretch: 104%; }
+
+/* ── Direction 2: Ute Signage ── */
+.t-ute {
+  --t-ink: #ffffff; --t-muted: #a9bbcf; --t-brand: #25d8f3; --t-brand-ink: #25d8f3; --t-deep: #06182a;
+  --t-accent: #f2b13b; --t-accent-ink: #06182a; --t-accent-hover: #ffc457;
+  --t-surface: #0b2239; --t-tint: #0e2a46; --t-line: #1f3d5c; --t-page: #06182a;
+  --t-display: "Barlow Condensed", "Barlow", system-ui, sans-serif; --t-body: "Barlow", system-ui, sans-serif;
+  --dg-rafter: #2a4867; --dg-batten: #3b5b7d; --dg-tile: #c8643b; --dg-tile-top: #dd7a4e; --dg-mortar: #c9bda3; --dg-point: #25d8f3;
+  --dg-line: #25d8f3; --dg-text: #ffffff; --dg-sub: #a9bbcf;
+  --mp-land: #0b2239; --mp-area: rgba(37,216,243,.13); --mp-area-line: #25d8f3; --mp-water: #06182a; --mp-water-text: #4f7397;
+  --mp-dot: #f2b13b; --mp-dot-ring: #0b2239; --mp-text: #ffffff; --mp-cbd: #a9bbcf; --mp-sub: #a9bbcf;
+}
+
+/* ── Direction 3: Terracotta & Blue ── */
+.t-terra {
+  --t-ink: #14263b; --t-muted: #5d5650; --t-brand: #1c8fd0; --t-brand-ink: #11689c; --t-deep: #14263b;
+  --t-accent: #c2502a; --t-accent-ink: #ffffff; --t-accent-hover: #a8431f;
+  --t-surface: #ffffff; --t-tint: #f4eadf; --t-line: #e7d9c7; --t-page: #fbf6ef;
+  --t-display: "Bricolage Grotesque Variable", "Inter Variable", system-ui, sans-serif; --t-body: "Inter Variable", system-ui, sans-serif;
+  --dg-rafter: #d9c6ac; --dg-batten: #b08d68; --dg-tile: #c2502a; --dg-tile-top: #d4683f; --dg-mortar: #e2d5bb; --dg-point: #1c8fd0;
+  --dg-line: #14263b; --dg-text: #14263b; --dg-sub: #5d5650;
+  --mp-land: #fffdf9; --mp-area: rgba(194,80,42,.10); --mp-area-line: #c2502a; --mp-water: #d7e9f5; --mp-water-text: #5b88a8;
+  --mp-dot: #c2502a; --mp-dot-ring: #fff; --mp-text: #14263b; --mp-cbd: #14263b; --mp-sub: #5d5650;
+}
+
+@layer components {
+  .wrap { margin-inline: auto; width: 100%; max-width: 80rem; padding-inline: 1.25rem; }
+  @media (min-width: 48rem) { .wrap { padding-inline: 2rem; } }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 font-bold transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand; }
+  .btn-lg { @apply px-6 py-4 text-lg; }
+  .btn-accent { @apply bg-accent text-accent-ink shadow-lg shadow-black/10 hover:bg-accent-hover; }
+  .btn-deep { @apply bg-deep text-white hover:opacity-90; }
+  .btn-ghost { @apply ring-1 ring-inset ring-current hover:bg-white/10; }
+  .eyebrow { @apply text-sm font-bold uppercase tracking-[.16em] text-brand-ink; }
+  .h2 { @apply mt-3 font-display text-[2.15rem] leading-[1.05] font-extrabold tracking-tight md:text-5xl; }
+  .lead { @apply mt-5 max-w-2xl text-lg leading-relaxed text-muted; }
+  .field { @apply grid gap-1.5 text-sm font-semibold; }
+  .field :is(input, select, textarea) { @apply w-full rounded-xl border border-line bg-white px-4 py-3 text-base font-normal text-[#0b2239] placeholder:text-slate-400 focus:border-brand focus:outline-none focus:ring-4 focus:ring-brand/15; }
+  .chip { @apply inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold; }
+}
+
+/* Ute: square, signage-style controls */
+.t-ute .btn { border-radius: 0; font-family: var(--t-display); text-transform: uppercase; letter-spacing: .04em; font-size: 1.1rem; }
+.t-ute .h2 { text-transform: uppercase; font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: .92; letter-spacing: .01em; }
+.t-ute .eyebrow { color: var(--t-brand); }
+.t-ute .field :is(input, select, textarea) { border-radius: 0; }
+/* Terra: soft, rounded controls */
+.t-terra .btn { border-radius: 999px; }
+.t-terra .h2 { font-weight: 700; letter-spacing: -.02em; }
+
+/* House-shaped photo frame: the clip follows the inside of the logo's roof, and the roof
+   artwork (brand/roof-*.svg, viewBox 325 714 2044 929) sits exactly on top of it. */
+.house { aspect-ratio: 1546 / 1603; clip-path: polygon(50% 0, 100% 43.86%, 100% 100%, 0 100%, 0 43.86%); }
+.house-roof { left: -16.106%; width: 132.21%; top: -14.099%; }
+/* House-shaped photo frame (echoes the roof in the logo) */
+.gable { clip-path: polygon(50% 0, 100% 34%, 100% 100%, 0 100%, 0 34%); }
+.arch { border-radius: 999px 999px 1.5rem 1.5rem; }
+.arch-top { border-radius: 12rem 12rem 1.25rem 1.25rem; }
+
+/* Roof-pitch line pattern for dark sections */
+.pitch-lines { background-image: repeating-linear-gradient(135deg, currentColor 0 2px, transparent 2px 46px), repeating-linear-gradient(45deg, currentColor 0 2px, transparent 2px 46px); }
+
+/* Roof-tile (fish-scale) pattern: stroke-only arcs tile seamlessly */
+.tiles { background-color: #c2502a; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Cg fill='none' stroke='%23a03f1c' stroke-width='2.2'%3E%3Cpath d='M0 0a22 22 0 0 0 44 0'/%3E%3Cpath d='M-22 22a22 22 0 0 0 44 0M22 22a22 22 0 0 0 44 0'/%3E%3C/g%3E%3C/svg%3E"); background-size: 44px 44px; }
+.tiles-light { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='2.2'%3E%3Cpath d='M0 0a22 22 0 0 0 44 0'/%3E%3Cpath d='M-22 22a22 22 0 0 0 44 0M22 22a22 22 0 0 0 44 0'/%3E%3C/g%3E%3C/svg%3E"); background-size: 44px 44px; }
+/* Roman-tile scallop band */
+.scallop { background-image: radial-gradient(circle at 50% 0, transparent 17px, var(--sc, #c2502a) 18px); background-size: 40px 22px; background-position: 0 0; }
+.scallop-rows { background-image: radial-gradient(circle at 50% 100%, var(--sc1, #c2502a) 18px, transparent 19px), radial-gradient(circle at 50% 100%, var(--sc2, #d4683f) 18px, transparent 19px); background-size: 40px 26px, 40px 26px; background-position: 0 0, 20px 13px; }
+
+/* Signage marquee */
+.marquee { display: flex; width: max-content; animation: marquee 38s linear infinite; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .marquee { animation: none; } }
+
+/* Diagram + map styling (colours come from the theme variables above) */
+.dg .dg-rafter, .dg .dg-ridgeboard { fill: var(--dg-rafter); }
+.dg .dg-batten path { fill: var(--dg-batten); }
+.dg .dg-tile { fill: var(--dg-tile); }
+.dg .dg-tile--top { fill: var(--dg-tile-top); }
+.dg .dg-mortar { fill: var(--dg-mortar); }
+.dg .dg-point { fill: none; stroke: var(--dg-point); stroke-width: 8; stroke-linecap: round; }
+.dg .dg-cap { fill: none; stroke: var(--dg-tile); stroke-width: 15; }
+.dg .dg-lead { fill: none; stroke: var(--dg-line); stroke-width: 1.5; opacity: .7; }
+.dg .dg-dot { fill: var(--dg-line); }
+.dg .dg-t { font: 650 17px var(--font-body); fill: var(--dg-text); }
+.dg .dg-s { font: 400 14px var(--font-body); fill: var(--dg-sub); }
+.dg .dg-nums { display: none; }
+.dg .dg-num circle { fill: var(--dg-line); }
+.dg .dg-num text { font: 700 17px var(--font-body); fill: var(--t-page, #fff); }
+@media (max-width: 39.99rem) {
+  .dg .dg-labels { display: none; }
+  .dg .dg-nums { display: inline; }
+}
+.mp .mp-land { fill: var(--mp-land); }
+.mp .mp-area { fill: var(--mp-area); stroke: var(--mp-area-line); stroke-width: 2; stroke-dasharray: 7 7; }
+.mp .mp-water { fill: var(--mp-water); }
+.mp .mp-water-t { font: italic 500 14px var(--font-body); fill: var(--mp-water-text); letter-spacing: .12em; }
+.mp .mp-dot { fill: var(--mp-dot); stroke: var(--mp-dot-ring); stroke-width: 3; }
+.mp .mp-t { font: 650 15px var(--font-body); fill: var(--mp-text); }
+.mp .mp-cbd { fill: var(--mp-cbd); }
+.mp .mp-cbd-t { font: 500 13px var(--font-body); fill: var(--mp-sub); }
+
+details > summary::-webkit-details-marker { display: none; }
+html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+.mobilebar { background: color-mix(in srgb, var(--t-page) 94%, transparent); backdrop-filter: blur(10px); border-color: var(--t-line); }
+
+@media (max-width: 39.99rem) {
+  .mp .mp-t { font-size: 21px; }
+  .mp .mp-cbd-t { font-size: 18px; }
+}

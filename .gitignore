@@ -1,2 +1,8 @@
 .claude/
 .hermes/
+
+# design workspace (rebuildable)
+_design/node_modules/
+_design/out/
+_design/proto/node_modules/
+_design/proto/out/
