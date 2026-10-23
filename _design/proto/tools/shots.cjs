@@ -1,5 +1,5 @@
 // Usage: node shots.cjs <page> <outdir> <w> <h> <y1,y2,...> [settleMs]   (env: Q=?query, RM=1 for reduced motion)
-// Jumps to each scroll position (px, or "end" for the bottom) and screenshots it after the scene settles.
+// Jumps to each scroll position (px, f0.5 for a fraction of the page, or "end") and screenshots it after the scene settles.
 const { chromium } = require(require('child_process').execSync('npm root -g').toString().trim() + '/playwright');
 (async () => {
   const [page, out, w, h, list, settle = '2200'] = process.argv.slice(2);
@@ -11,9 +11,10 @@ const { chromium } = require(require('child_process').execSync('npm root -g').to
   await p.goto(`http://localhost:8150/${page}/${process.env.Q || ""}`, { waitUntil: 'networkidle', timeout: 120000 });
   await p.waitForTimeout(2600);
   const total = await p.evaluate(() => document.documentElement.scrollHeight);
+  const innerH = +h;
   const ys = list.split(',');
   for (let i = 0; i < ys.length; i++) {
-    const y = ys[i] === 'end' ? total : +ys[i];
+    const y = ys[i] === 'end' ? total : ys[i].startsWith('f') ? Math.round(+ys[i].slice(1) * (total - innerH)) : +ys[i];
     await p.evaluate((y) => window.scrollTo(0, y), y);
     // Headless Chrome only runs animation frames intermittently when idle, so wait until the scene reports it has caught up.
     for (let k = 0; k < 60; k++) {

@@ -356,6 +356,7 @@ function placeCamera() {
   tgt.fromArray(a.t).lerp(tv.fromArray(b.t), f);
   camera.position.set(Math.cos(el) * Math.sin(az), Math.sin(el), Math.cos(el) * Math.cos(az)).multiplyScalar(d).add(tgt);
   camera.lookAt(tgt);
+  camera.updateMatrixWorld(); // the HUD tags project with this frame's camera, before render() would update it
   // The house sits beside the cards on desktop; on phones it sits below the hero copy, then above the cards.
   const w = innerWidth, h = innerHeight;
   if (narrow()) camera.setViewOffset(w, h, 0, lerp(-0.29, 0.17, ss(0.15, 0.85, T)) * h, w, h);
