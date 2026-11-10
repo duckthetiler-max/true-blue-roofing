@@ -28,9 +28,9 @@ const BIZ = {
   ],
   email: 'info@trueblueroofrandr.com.au',
   abn: '69 531 693 315',
-  region: 'South East Melbourne',
+  region: 'South East Melbourne and the Mornington Peninsula',
   hours: 'Mon–Sat: 7am – 5pm',
-  areas: ['Berwick', 'Narre Warren', 'Cranbourne', 'Pakenham', 'Dandenong', 'Clayton', 'Ringwood', 'Frankston', 'Mornington'],
+  areas: ['Berwick', 'Narre Warren', 'Cranbourne', 'Pakenham', 'Dandenong', 'Clayton', 'Ringwood', 'Frankston', 'Langwarrin', 'Mornington'],
   // Add the Google Maps / Facebook / Instagram URLs here once they exist.
   // Empty means the link is left off the page rather than pointing nowhere.
   mapsUrl: '',
@@ -229,7 +229,7 @@ const SERVICES = [
 const AREAS_PAGE = {
   slug: 'service-areas',
   title: 'Roofing Service Areas, South East Melbourne | True Blue Roof Restorations & Repairs',
-  description: `Roof restoration and repairs across South East Melbourne, including ${BIZ.areas.join(', ')}.`,
+  description: `Roof restoration and repairs across ${BIZ.region}, including ${BIZ.areas.join(', ')}.`,
   h1: 'Where We Work',
   lead: `True Blue works across ${BIZ.region}. If your suburb isn't listed, call us — if it's within reach, we'll come and quote.`
 };
