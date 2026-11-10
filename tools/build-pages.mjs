@@ -34,7 +34,8 @@ const BIZ = {
   // Add the Google Maps / Facebook / Instagram URLs here once they exist.
   // Empty means the link is left off the page rather than pointing nowhere.
   mapsUrl: '',
-  sameAs: []
+  // Instagram handle as given by Duck, 25 Oct 2026.
+  sameAs: ['https://www.instagram.com/trueblueroofingvic/']
 };
 const MAIN_PHONE = BIZ.phones[0];
 

@@ -155,6 +155,10 @@ document.addEventListener('DOMContentLoaded', () => {
           body: JSON.stringify(payload)
         });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        // FormSubmit answers HTTP 200 with success:"false" when the inbox isn't
+        // activated yet, so check the body, not just the status.
+        const data = await res.json().catch(() => ({}));
+        if (String(data.success) !== 'true') throw new Error(data.message || 'FormSubmit rejected the submission');
 
         modal.classList.add('visible');
         document.body.style.overflow = 'hidden';
